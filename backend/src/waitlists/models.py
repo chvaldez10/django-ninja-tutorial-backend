@@ -1,5 +1,5 @@
 from django.db import models
 
 class WaitlistEntry(models.Model):
-    emails = models.EmailField()
+    email = models.EmailField()
     timestamp = models.DateTimeField(auto_now_add=True)

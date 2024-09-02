@@ -1,6 +1,7 @@
 from typing import List
 from ninja import Router
-from .schemas import WaitlistEntryListSchema
+from django.shortcuts import get_object_or_404
+from .schemas import WaitlistEntryListSchema, WaitlistEntryDetailSchema
 from .models import WaitlistEntry
 
 router = Router()
@@ -9,3 +10,9 @@ router = Router()
 def list_waitlist_entries(request):
     qs = WaitlistEntry.objects.all()
     return qs
+
+@router.get("{entry_id}/", response=WaitlistEntryDetailSchema)
+def get_waitlist_entry(request, entry_id:int):
+    print("entry_id", entry_id)
+    obj = get_object_or_404(WaitlistEntry, id=entry_id)
+    return obj

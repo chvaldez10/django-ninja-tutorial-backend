@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ninja_extra',
     'ninja_jwt',
+    'waitlists',
 ]
 
 MIDDLEWARE = [

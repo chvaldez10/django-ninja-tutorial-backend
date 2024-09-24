@@ -13,6 +13,10 @@ def list_waitlist_entries(request):
 
 @router.get("{entry_id}/", response=WaitlistEntryDetailSchema)
 def get_waitlist_entry(request, entry_id:int):
-    print("entry_id", entry_id)
     obj = get_object_or_404(WaitlistEntry, id=entry_id)
-    return obj
+    return {
+        "id": obj.id,
+        "email": obj.email,
+        "updated": obj.updated,
+        "timestamp": obj.timestamp,
+    }

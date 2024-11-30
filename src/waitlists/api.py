@@ -28,6 +28,7 @@ def create_waitlist_entry(request, data:WaitlistEntryCreateSchema):
     
     if request.user.is_authenticated:
         obj.user = request.user
+    
     obj.save()
     
     return 201, obj

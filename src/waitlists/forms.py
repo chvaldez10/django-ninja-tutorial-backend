@@ -3,7 +3,6 @@ from django.utils import timezone
 from .models import WaitlistEntry
 
 class WaitlistEntryCreateForm(forms.ModelForm):
-    # email = forms.EmailField()
     class Meta:
         model = WaitlistEntry
         fields = ['email']
